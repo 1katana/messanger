@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+{% block mainmenu %}
+
+{% endblock mainmenu %}
+{% block content %}
+<h2>{{user.username}}</h2>
+{% for m in messages %}
+<li>{{m.sender_id.username}}</li>
+<li>{{m.receiver_id.username}}</li>
+<li>{{m.content}}</li>
+<br>
+{% endfor %}
+{% endblock content %}
+
+</body>
+</html>
