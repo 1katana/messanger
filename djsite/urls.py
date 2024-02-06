@@ -20,8 +20,8 @@ from messanger import views
 
 
 urlpatterns = [
-    path('',include("messanger.urls")),
-    path('auth/',views.authorization,name='auth'),
+    path('',include('messanger.urls')),
+    path('users/',include('user.urls',namespace="users")),
     path('admin/', admin.site.urls),
 
 ]

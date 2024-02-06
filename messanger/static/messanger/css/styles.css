@@ -1,0 +1,44 @@
+.sidebar{
+    height: 100%;
+    width: 34%;
+    min-width: 280px;
+    background-color: rgb(55,55,55);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    padding: 20px 3px 0 3px
+}
+
+.topnav{
+
+
+    background-color: rgb(100,100,100);
+
+    min-height: 30px;
+
+}
+.elemtop{
+    display: flex;
+
+
+    margin: 0 0 15px 0;
+}
+
+.allcontacts{
+
+}
+
+.contact{
+    display: block;
+    width: 100%;
+    background-color: rgb(100,55,55);
+    margin: 0 0 3px 0;
+}
+
+
+.main {
+    margin-left: max(280px,34%); /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}

@@ -1,19 +1,62 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+{% block content %}
+
+<div class="sidebar">
+    <div class="topnav">
+        <div class="elemtop">
+            <p>{{user.username}}</p>
+            <input type="text">
+        </div>
+    </div>
+
+    <div class="allcontacts">
+<form method="post">
+{% for c in contacts %}
+    {% csrf_token %}
+
+{% if c.contact_user_id.username == None %}
+    <button name="pk" class="contact" value="{{ c.group.pk }}">
+        <div >
+            <p>{{c.group.group_name}}</p>
+        </div>
+
+    </button>
+{% else  %}
+    <button name="pk" class="contact" value="{{ c.contact_user_id.pk }}">
+        <div >
+            <p>{{c.contact_user_id.username}}</p>
+        </div>
+
+    </button>
+
+
+{% endif %}
+
+
+
+{% endfor %}
+</form>
+
+    </div>
+
+</div>
+
+
+
+<div class="main">
+{% if messages_user == 0 %}
+    <p>Выберите чела</p>
+{% else %}
+{% for m in messages %}
+    <li>{{m.sender_id.username}}</li>
+    <li>{{m.receiver_id.username}}</li>
+    <li>{{m.content}}</li>
+    <br>
+{% endfor %}
+{% endif %}
+
+
+</div>
+
+{% endblock content %}
