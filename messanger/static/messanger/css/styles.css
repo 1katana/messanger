@@ -1,44 +1,329 @@
-.sidebar{
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+
+}
+
+body{
+    overflow-y: hidden;
+}
+
+.full{
+    box-sizing: border-box;
+    width:100%;
     height: 100%;
-    width: 34%;
-    min-width: 280px;
-    background-color: rgb(55,55,55);
-    position: fixed;
+    display:flex;
+    background: linear-gradient(0deg, rgba(248,184,212,1) 0%, rgba(158,197,243,1) 100%);
+
+}
+
+.sidebar{
+    min-width: max(305px,29%);
+
+    /*background: linear-gradient(0deg, rgba(248,184,212,1) 0%, rgba(158,197,243,1) 100%);*/
     z-index: 1;
-    left: 0;
-    top: 0;
-    overflow-x: hidden;
-    padding: 20px 3px 0 3px
+    padding-top: 25px;
+
+    border-right: 2px solid #472188;
 }
 
-.topnav{
 
-
-    background-color: rgb(100,100,100);
-
-    min-height: 30px;
-
-}
 .elemtop{
+    border-radius: 20px;
+
+    background: rgb(243,178,206);
+    background: radial-gradient(circle, rgba(243,178,206,1) 1%, rgba(151,97,195,1) 77%, rgba(108,59,192,0.9) 100%);
+    background-size: 200% 100%;
     display: flex;
+    margin: 0 4px 31px 4px;
+    padding: 2px 5px;
+    box-shadow: 0 0 13px 1px rgba(77, 40 , 145,0.9);
+    transition: all 0.4s ease-in-out;
+}
 
+.elemtop:hover{
+    background-position: 100% 10%;
+    transition: all 0.4s ease-in-out;
+}
 
-    margin: 0 0 15px 0;
+.elemtop p{
+    margin: auto 0;
+}
+
+.search{
+    height:25px;
+    width:150px;
+    margin: auto 0 auto 15px;
+
 }
 
 .allcontacts{
 
+    overflow-y: auto;
+    height: 100%;
+    padding: 0 2px;
 }
 
 .contact{
-    display: block;
+    display: flex;
+
     width: 100%;
-    background-color: rgb(100,55,55);
-    margin: 0 0 3px 0;
+    height: 78px;
+
+    border-top: 1px solid #472188;
+
+    border-bottom: none;
+
+    border-right: none;
+    border-left: none;
+
+    cursor: pointer;
+    background: rgb(255,248,242);
+    background: linear-gradient(270deg, rgba(255,225,199,1) 1%, rgba(243,232,249,1) 69%, rgba(221,202,255,1) 100%);
+    background-size: 170% 100%;
+    transition: all 0.4s ease-in-out;
+}
+.contact:last-of-type{
+    border-bottom: 1px solid #472188;
+}
+
+.contact:hover{
+
+    /*background: rgb(235,235,235);*/
+    background-position: 100% 0%;
+    transition: all 0.4s ease-in-out;
+}
+
+.contact:active{
+    background: linear-gradient(270deg, rgba(255,218,149,1) 1%, rgba(239,204,177,1) 55%, rgba(221,202,255,1) 100%);
+    transition: all 0.2s;
+}
+
+.main {
+    min-width:280px;
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+    background-color: rgb(290, 292,290);
+    padding: 27px;
+
+}
+
+.buttonUser{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    /*background-image: url('https://eternalhost.net/wp-content/uploads/2019/06/circled-user-male-skin-type-1-2.png');
+    background-size: cover;*/
+    margin: 0 15px 0 0;
+}
+
+.windowLogin{
+    width:350px;
+    margin:auto;
+    background: rgb(255,255,255);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 13px 1px rgba(77, 40 , 145,0.9);
+}
+
+#containerButtons{
+    margin: 40px auto 0px auto;
+
+}
+.buttonLogin{
+    border-radius: 12px;
+    width: 154px;
+    height: 54px;
+    color: rgb(255,255,255);
+    border: none;
+    background: rgb(34,195,83);
+
+    transition: all 0.2s;
+    box-shadow: 0 0 8px 0 rgba(20,20,20,0.65);
 }
 
 
-.main {
-    margin-left: max(280px,34%); /* Same as the width of the sidebar */
-    padding: 0px 10px;
+
+#login{
+    float: left;
+
+    background: radial-gradient(circle, rgba(19,229,91,1) 7%, rgba(25,179,109,1) 44%, rgba(34,144,126,1) 81%, rgba(42,114,141,1) 100%);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    /*opacity:1;*/
+    -webkit-filter: brightness(100%);
+
+}
+
+#registration{
+
+    text-decoration: none;
+    float: right;
+    background: radial-gradient(circle, rgba(238,173,201,1) 1%, rgba(151,97,195,1) 77%, rgba(108,59,192,0.9) 100%);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    opacity:1;
+
+}
+
+#registration div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height:100%;
+    width:100%;
+
+}
+
+#login:hover{
+    /*opacity:0.85;*/
+    -webkit-filter: brightness(90%);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#registration:hover{
+    opacity:0.85;
+}
+
+#registration:active{
+    float: right;
+    background-size: 100% 100%;
+    transition: all 0.2s;
+}
+
+
+#login:active{
+    background-size: 100% 100%;
+    transition: all 0.2s;
+}
+
+.forms-input{
+
+    padding: 0 10px 0 10px;
+    width:100%;
+    height:40px;
+    border-radius:8px;
+    border: 1px solid rgb(160,160,160);
+    box-sizing:border-box;
+    margin: 20px 0 0 0;
+}
+
+#id_username{
+
+}
+
+.form-error{
+    margin: 0 0 8px 0;
+    height:20px;
+    color: rgb(255,0,0);
+    text-align: center;
+}
+
+#loginText{
+    font-size:25px;
+    margin:0 0 23px 0;
+    text-align: center;
+
+}
+
+#input-file-row {
+    margin: 20px 0 0 0;
+
+}
+
+.upload{
+    margin: 0 auto;
+    position: relative;
+	display: block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+
+	transition: background-color 0.2s;
+}
+
+#input-file label {
+
+
+}
+
+
+.upload input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
 }

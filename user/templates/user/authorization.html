@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
 
 
-{% block sidebar %}
-
-{% endblock sidebar %}
 
 {% block content %}
-<form method="post">
+
+<div class="windowLogin">
+    <p id="loginText">Вход в Мессенджер</p>
+    <form method="post" >
     {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Submit">
-</form>
+
+
+{% if form.non_field_errors %}
+    <div class="form-error">Неправильный логин или пароль</div>
+{% else %}
+    <div class="form-error"></div>
+{% endif %}
+
+    {% for f in form %}
+    <p>
+        {{f}}
+    </p>
+    {% endfor %}
+
+    <div id="containerButtons">
+        <button class="buttonLogin" id="login" type="submit">Войти</button>
+        <a class="buttonLogin" id="registration" type="button" href="{% url 'user:register' %}"><div>Регистрация</div></a>
+    </div>
+
+    </form>
+
+</div>
+
 
 {% endblock content %}

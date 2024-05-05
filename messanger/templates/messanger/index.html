@@ -3,15 +3,23 @@
 {% block content %}
 
 <div class="sidebar">
-    <div class="topnav">
-        <div class="elemtop">
-            <p>{{user.username}}</p>
-            <input type="text">
-        </div>
+    <div class="elemtop">
+        <a href="/user/">
+            <img  class="buttonUser" src="{{avatar.photo.url}}" >
+        </a>
+        <p>{{user.username}}</p>
+
+        <form action="get">
+            {% csrf_token %}
+            <input class="search" type="text">
+        </form>
+
+
     </div>
 
+
     <div class="allcontacts">
-<form method="post">
+<form method="post" >
 {% for c in contacts %}
     {% csrf_token %}
 

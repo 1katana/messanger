@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.db.models import Q
 from messanger.models import *
 from messanger.forms import *
+from user.models import *
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponse
@@ -14,13 +16,21 @@ name="katana"
 
 
 
-
+@login_required
 def base(request):
-    user=get_user_model().objects.get(username=name)
+    # if request.user.is_authenticated:
+    user=request.user
 
     contacts=Contacts.objects.filter(user_id=user)
 
-    context={}
+    img=User_File_Upload.objects.filter(user=user)
+
+    avatar=0
+    for i in img:
+        if i.is_avatar==True:
+            avatar=i
+
+    # context={}
 
     messages={}
 
@@ -45,17 +55,18 @@ def base(request):
 
             context = {
                 'user': user,
+                'avatar': avatar,
                 'contacts': contacts,
                 'messages_user': 1,
                 'messages': messages
             }
             return render(request, 'messanger/index.html', context)
-    else:
-        form = change_contact()
-        context={
-            'user': user,
-            'contacts':  contacts ,
-            'messages_user': 0,
-            # 'messages': messages
-        }
+
+    context = {
+        'user': user,
+        'avatar': avatar,
+        'contacts': contacts,
+        'messages_user': 0,
+        # 'messages': messages
+    }
     return render(request, 'messanger/index.html',context)

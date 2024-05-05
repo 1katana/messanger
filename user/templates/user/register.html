@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+
+<div class="windowLogin">
+    <p id="loginText">Регистрация</p>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for f in form %}
+    <p>
+        {{f}}
+    </p>
+
+    {% endfor %}
+
+    <div id="input-file-row">
+
+        <label class="upload" for="input-file" >Выберите фотографию
+            <input id="input-file" type="file" name="image_upload" accept="image/jpeg,image/png">
+        </label>
+
+        <div class="input-file-list"></div>
+    </div>
+
+    <div id="containerButtons">
+        <button class="buttonLogin" id="login" type="submit">Зарегистрироваться</button>
+        <a class="buttonLogin" id="registration" type="button" href="{% url 'user:login' %}"><div>Войти</div></a>
+
+    </div>
+</form>
+
+
+
+
+</div>
+
+
+{% endblock %}
